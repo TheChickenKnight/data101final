@@ -1,11 +1,14 @@
+import Prism from "prismjs";
+import "prismjs/components/prism-jsx";
 
-export default function Home() {
+export default async function Home() {
   return (<div>
-    {CodeSnippet("function HelloWorld() {\n console.log(\"Hello, World\")\n}", "js")}
+    {await CodeSnippet("function HelloWorld() {\n console.log(\"Hello, World\")\n}", "js")}
   </div>);
 }
 
-function CodeSnippet(text, lang) {
+async function CodeSnippet(text, lang) {
+  await Prism.highlightAll();
   return(
     <div>
       <pre>
