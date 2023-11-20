@@ -10,14 +10,6 @@ export default function Home() {
   );
 }
 
-function CodeSnippet(text) {
-  return (
-    <div data-datacamp-exercise data-show-run-button data-lang="r">
-      <code data-type="sample-code">{text}</code>
-    </div>
-  );
-}
-
 function Bar() {
   return (
     <Sidebar>
