@@ -1,44 +1,35 @@
-import Script from 'next/script';
+import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
+import Link from 'next/link';
 
-export default async function Home() {
+export default function Home() {
   return (
-    <div><Script type="text/javascript" src="//cdn.datacamp.com/dcl-react.js.gz"></Script>
-      
-      {await CodeSnippet("function HelloWorld() {\n console.log(\"Hello, World\")\n}")}
+    <div>
+      {Bar()}
+      <strong>Title Place holder</strong>
     </div>
   );
 }
 
-async function CodeSnippet(text) {
-  return(
-    <>
-    <div data-datacamp-exercise data-lang="python">
-  <code data-type="pre-exercise-code">
-    # no pec
-  </code>
-  <code data-type="sample-code">
-    # Create a variable a, equal to 5
+function CodeSnippet(text) {
+  return (
+    <div data-datacamp-exercise data-show-run-button data-lang="r">
+      <code data-type="sample-code">{text}</code>
+    </div>
+  );
+}
 
-
-    # Print out a
-
-  </code>
-  <code data-type="solution">
-    # Create a variable a, equal to 5
-    a = 5
-
-    # Print out a
-    print(a)
-  </code>
-  <code data-type="sct">
-    test_object(&quot;a&quot;)
-    test_function(&quot;print&quot;)
-    success_msg(&quot;Great job!&quot;)
-  </code>
-  <div data-type="hint">
-    Use the assignment operator (<code>=</code>) to create the variable <code>a</code>.
-  </div>
-</div>
-    </>
+function Bar() {
+  return (
+    <Sidebar>
+      <Menu>
+        <SubMenu label="Personal">
+          <MenuItem>About Me</MenuItem>
+          <MenuItem>Resume</MenuItem>
+        </SubMenu>
+        <SubMenu label="Projects">
+          <MenuItem component={<Link to="/data101"/>}>Data 101</MenuItem>
+        </SubMenu>
+      </Menu>
+    </Sidebar>
   );
 }
