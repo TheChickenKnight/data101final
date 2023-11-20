@@ -11,10 +11,34 @@ export default async function Home() {
 
 async function CodeSnippet(text) {
   return(
-    <div data-datacamp-exercise data-lang="js">
-      <code>
-          {text}
-      </code>
-    </div>
+    <>
+    <div data-datacamp-exercise data-lang="python">
+  <code data-type="pre-exercise-code">
+    # no pec
+  </code>
+  <code data-type="sample-code">
+    # Create a variable a, equal to 5
+
+
+    # Print out a
+
+  </code>
+  <code data-type="solution">
+    # Create a variable a, equal to 5
+    a = 5
+
+    # Print out a
+    print(a)
+  </code>
+  <code data-type="sct">
+    test_object(&quot;a&quot;)
+    test_function(&quot;print&quot;)
+    success_msg(&quot;Great job!&quot;)
+  </code>
+  <div data-type="hint">
+    Use the assignment operator (<code>=</code>) to create the variable <code>a</code>.
+  </div>
+</div>
+    </>
   );
 }
