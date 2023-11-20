@@ -19,7 +19,7 @@ function Bar() {
           <MenuItem>Resume</MenuItem>
         </SubMenu>
         <SubMenu label="Projects">
-          <MenuItem component={<Link to="/data101"/>}>Data 101</MenuItem>
+          <MenuItem component={<Link href="/data101"/>}>Data 101</MenuItem>
         </SubMenu>
       </Menu>
     </Sidebar>
