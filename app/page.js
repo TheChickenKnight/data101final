@@ -2,8 +2,8 @@ import Script from 'next/script';
 
 export default async function Home() {
   return (
-    <div>
-      <Script type="text/javascript" src="//cdn.datacamp.com/dcl/lastest/dcl-react.js.gz"></Script>
+    <div><Script type="text/javascript" src="//cdn.datacamp.com/dcl-react.js.gz"></Script>
+      
       {await CodeSnippet("function HelloWorld() {\n console.log(\"Hello, World\")\n}")}
     </div>
   );
