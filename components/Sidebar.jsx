@@ -4,6 +4,51 @@ import { useState } from "react";
 import classNames from "classnames";
 import LogoIcon from "./icons/LogoIcon";
 import CollapsIcon from "./icons/CollapsIcon";
+import DefaultIcon from "./icons/DefaultIcon";
+
+
+//bruh why is importing so bad
+const sections = [
+  {
+    name: "Personal",
+    id: "personal",
+    children: [
+      {
+        name: "About Me",
+        id: "aboutme",
+        children: [],
+        parent: "personal",
+        icon: ""
+      },
+      {
+        name: "Resume",
+        id: "resume",
+        children: [],
+        parent: "personal",
+        icon: ""
+      }
+    ],
+    parent: "",
+    icon: ""
+  },
+  {
+    name: "Projects",
+    id: "projects",
+    children: [
+      {
+        name: "Data 101 Final",
+        id: "data101",
+        children: [],
+        parent: "projects",
+        icon: ""
+      }
+    ],
+    parent: "",
+    icon: ""
+  }
+];
+
+
 
 export default function Sidebar() {
     const [toggleCollapse, setToggleCollapse] = useState(true);
@@ -23,14 +68,14 @@ export default function Sidebar() {
       }
     );
   
-    const getNavItemClasses = (menu) => {
+    /*const getNavItemClasses = (menu) => {
       return classNames(
         "flex items-center cursor-pointer hover:bg-light-lighter rounded w-full overflow-hidden whitespace-nowrap",
         {
           ["bg-light-lighter"]: activeMenu.id === menu.id,
         }
       );
-    };
+    };*/
   
     const onMouseOver = () => setIsCollapsible(!isCollapsible);
   
@@ -68,7 +113,50 @@ export default function Sidebar() {
           </div>
   
           <div className="flex flex-col items-start mt-24">
-           
+              {
+                sections.map(section => {
+                    return (
+                      // eslint-disable-next-line react/jsx-key
+                      <div className="items-center">
+                        <div className="items-center flex">
+                          <DefaultIcon/>
+                          <span 
+                            className = {
+                              classNames("mt-2 text-lg font-medium text-text", {
+                                hidden: toggleCollapse,
+                              })
+                            }>
+                            {section.name}
+                          </span>
+                        </div>
+                        {
+                          section.children.map(child => {
+                            return (
+                              // eslint-disable-next-line react/jsx-key
+                              <div
+                                className = {
+                                  classNames("flex items-center cursor-pointer hover:bg-black rounded w-full overflow-hidden whitespace-nowrap", {
+                                    //["bg-light-lighter"]: activeMenu.id === menu.id,
+                                  })
+                                }
+                              >
+                                <span className="pl-5 mt-1 text-m font-medium text-text">|</span>
+                                <span 
+                                  className = {
+                                    classNames("pl-5 mt-1 text-m font-medium text-text", {
+                                      hidden: toggleCollapse,
+                                    })
+                                  }>
+                                  {child.name}
+                              </span>
+                             </div>
+                            )
+                          })
+                        }
+                      </div>
+                    )
+                })
+              }
           </div>
         </div>
       </div>

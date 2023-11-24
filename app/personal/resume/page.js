@@ -1,15 +1,16 @@
 export const data = {
-  name: "Projects",
-  id: "projects",
-  children: ["data101"],
-  parent: "",
+  name: "Resume",
+  id: "resume",
+  children: [],
+  parent: "personal",
   icon: ""
 }
 
-export default function Projects() {
+export default function Resume() {
     return (
       <div>
         <strong>Title Place holder</strong>
       </div>
     );
-}
+  }
+  
