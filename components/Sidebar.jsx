@@ -5,8 +5,7 @@ import classNames from "classnames";
 import LogoIcon from "./icons/LogoIcon";
 import CollapsIcon from "./icons/CollapsIcon";
 import DefaultIcon from "./icons/DefaultIcon";
-
-
+import { useRouter } from "next/navigation";
 //bruh why is importing so bad
 const sections = [
   {
@@ -51,6 +50,7 @@ const sections = [
 
 
 export default function Sidebar() {
+    let router = useRouter();
     const [toggleCollapse, setToggleCollapse] = useState(true);
     const [isCollapsible, setIsCollapsible] = useState(false);
     const wrapperClasses = classNames(
@@ -133,12 +133,13 @@ export default function Sidebar() {
                           section.children.map(child => {
                             return (
                               // eslint-disable-next-line react/jsx-key
-                              <div
+                              <button
                                 className = {
-                                  classNames("flex items-center cursor-pointer hover:bg-black rounded w-full overflow-hidden whitespace-nowrap", {
+                                  classNames("flex items-center cursor-pointer hover:bg-black rounded w-full overflow-hidden whitespace-nowrap hover:p-5 active:p-3.5", {
                                     //["bg-light-lighter"]: activeMenu.id === menu.id,
                                   })
                                 }
+                                onClick={() => {router.push("/" + section.id + "/" + child.id)}}
                               >
                                 <span className="pl-5 mt-1 text-m font-medium text-text">|</span>
                                 <span 
@@ -149,7 +150,7 @@ export default function Sidebar() {
                                   }>
                                   {child.name}
                               </span>
-                             </div>
+                             </button>
                             )
                           })
                         }
