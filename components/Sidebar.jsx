@@ -140,7 +140,7 @@ export default function Sidebar() {
                                 }
                                 onClick={() => {
                                   router.push("/" + section.id + "/" + child.id)
-                                  setTimeout(() => location.reload(), 100);
+                                  setTimeout(() => location.reload(), 1000);
                                 }}
                               >
                                 <span className="pl-5 mt-1 text-m font-medium text-text">|</span>
