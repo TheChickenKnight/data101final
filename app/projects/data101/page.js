@@ -1,3 +1,5 @@
+import Datacamp from '/components/Datacamp';
+
 export const data = {
   name: "Data 101 Final",
   id: "data101",
@@ -10,14 +12,7 @@ export default function Data101() {
     return (
       <div>
         <strong>Title Place holder</strong>
-        <div data-datacamp-exercise data-lang="r">
-          <code data-type="sample-code">
-            # Calculate 3 + 4
-            3 + 4
-
-            # Calculate 6 + 12
-          </code>
-        </div>
+        <Datacamp text={"2+4\n5+7"}/>
       </div>
     );
   }

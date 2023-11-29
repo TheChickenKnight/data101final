@@ -83,7 +83,6 @@ export default function Sidebar() {
 
   
     return (
-        <>
       <div
         className={wrapperClasses}
         onMouseEnter={onMouseOver}
@@ -139,7 +138,10 @@ export default function Sidebar() {
                                     //["bg-light-lighter"]: activeMenu.id === menu.id,
                                   })
                                 }
-                                onClick={() => {router.push("/" + section.id + "/" + child.id)}}
+                                onClick={() => {
+                                  router.push("/" + section.id + "/" + child.id)
+                                  setTimeout(() => location.reload(), 100);
+                                }}
                               >
                                 <span className="pl-5 mt-1 text-m font-medium text-text">|</span>
                                 <span 
@@ -161,6 +163,5 @@ export default function Sidebar() {
           </div>
         </div>
       </div>
-      </>
     );
   };
