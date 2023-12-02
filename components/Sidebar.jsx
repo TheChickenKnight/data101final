@@ -141,7 +141,7 @@ export default function Sidebar() {
                                     })
                                   }
                                   onClick={() => {
-                                    router.push("/" + section.id + "/" + child.id)
+                                    router.push("/" + section.id + "/" + child.id);
                                     setTimeout(() => location.reload(), 1000);
                                   }}
                                 >

@@ -18,11 +18,11 @@ export default function Data101() {
         <strong className="flex text-3xl">Data 101 Final Project</strong>
         <p>As a Rutgers student, I decided to take the class <a className='text-red-400'>data 101</a> to test the waters of data science. Here is my Final Project.</p>
         <strong className="flex text-xl">The Database</strong>
-        <Link href='https://chckn.vercel.app/api/globalyt' className='flex text-blue-400'>Global Youtube Statistics</Link>
-        <p>This database comes from the page <Link href="https://www.kaggle.com/datasets/nelgiriyewithana/global-youtube-statistics-2023" className='text-blue-400'>Kaggle</Link></p>
+        <Link href='https://chckn.vercel.app/api/obdb' className='flex text-blue-400'>Global Youtube Statistics</Link>
+        <p>This database comes from the page <Link href="https://www.kaggle.com/datasets/aravindpcoder/obesity-or-cvd-risk-classifyregressorcluster/" className='text-blue-400'>Kaggle</Link></p>
         <p>It contains entries of the top Youtube channels in order.</p>
         <strong className="flex text-xl">Project Guidelines</strong>
-        <blockquote className='rounded-md bg-slate-600 p-2 ml-2 mt-4 mb-4 mr-auto border-white border'>
+        <blockquote className='rounded-md bg-slate-600 p-4 ml-2 mt-4 mb-4 mr-auto border border-white w-fit'>
           <p>1. Before you execute rpart, describe the data using tables and plots based on techniques</p>
           <p>from the previous chapters of the Active Textbook. Knowing your data before just</p>
           <p>blindly performing rpart is always a good idea. Be sure to report the confusion matrix.</p>
@@ -35,7 +35,13 @@ export default function Data101() {
           <p className='mt-4'>A description of your methods that is targeted to your classmates, and a discussion of the</p>
           <p>results should be generated.</p>
         </blockquote>
-        <Datacamp text={"2+4\n5+7"}/>
+        <strong className="flex text-xl">Data Description</strong>
+        <p>Because my dataset is so large, im going to use a random sample of it for readable plots.</p>
+        <p>Below I&apos;m using the same embeds as the <Link href="http://adiadi.pythonanywhere.com" className='text-blue-400'>Active Textbook</Link> does.</p>
+        <Datacamp text= {
+          'youtube <- read.csv("https://raw.githubusercontent.com/TheChickenKnight/data101final/master/public/GlobalYouTubeStatistics.csv")\n' +
+          'plot(sample$subscribers,sample$video_views, ylab="views", xlab="subs", main="subs vs views")'
+        } className="h-96"/>
       </div>
     );
   }

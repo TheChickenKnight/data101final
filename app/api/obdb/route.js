@@ -2,11 +2,11 @@ import fs from "fs";
 
 export async function POST(request) {
     try {
-        const csvFile = fs.createReadStream(`${process.cwd()}/public/GlobalYouTubeStatistics.csv`);
+        const csvFile = fs.createReadStream(`${process.cwd()}/public/ObesityDataSet.csv`);
         return NextResponse
           .status(200)
           .setHeader("Content-Type", "text/csv")
-          .setHeader("Content-Disposition", `attachment; filename=GlobalYouTubeStatistics.csv`)
+          .setHeader("Content-Disposition", `attachment; filename=ObesityDataSet.csv`)
           .send(csvFile);
       } catch (error) {
         return NextResponse.status(400).json({ error });
@@ -15,7 +15,7 @@ export async function POST(request) {
 
 export async function GET(res, req) {
   try {
-      const csvFile = fs.createReadStream(`${process.cwd()}/public/GlobalYouTubeStatistics.csv`);
+      const csvFile = fs.createReadStream(`${process.cwd()}/public/ObesityDataSet.csv`);
       /*return NextResponse
         .status(200)
         .setHeader("Content-Type", "text/csv")
@@ -24,7 +24,7 @@ export async function GET(res, req) {
         return new Response(csvFile, {
           headers: {
             "Content-Type": "text/csv",
-            "Content-Disposition": `attachment; filename=GlobalYouTubeStatistics.csv`
+            "Content-Disposition": `attachment; filename=ObesityDataSet.csv`
           }
         })
     } catch (error) {
