@@ -54,7 +54,7 @@ export default function Sidebar() {
     const [toggleCollapse, setToggleCollapse] = useState(true);
     const [isCollapsible, setIsCollapsible] = useState(false);
     const wrapperClasses = classNames(
-      "h-screen bg-slate-800 px-4 pt-8 pb-4 bg-light flex justify-between flex-col",
+      "h-screen bg-slate-800 px-4 pt-8 pb-4 bg-light flex justify-between flex-col fixed z-50",
       {
         ["w-80"]: !toggleCollapse,
         ["w-20"]: toggleCollapse,

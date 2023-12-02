@@ -18,9 +18,15 @@ export default function Data101() {
         <strong className="flex text-3xl">Data 101 Final Project</strong>
         <p>As a Rutgers student, I decided to take the class <a className='text-red-400'>data 101</a> to test the waters of data science. Here is my Final Project.</p>
         <strong className="flex text-xl">The Database</strong>
-        <Link href='https://chckn.vercel.app/api/obdb' className='flex text-blue-400'>Global Youtube Statistics</Link>
+        <Link href='https://chckn.vercel.app/api/obdb' className='flex text-blue-400'>Obesity or CVD risk (Classify/Regressor/Cluster)</Link>
         <p>This database comes from the page <Link href="https://www.kaggle.com/datasets/aravindpcoder/obesity-or-cvd-risk-classifyregressorcluster/" className='text-blue-400'>Kaggle</Link></p>
-        <p>It contains entries of the top Youtube channels in order.</p>
+        <strong className="flex text-l mt-3">Description</strong>
+        <blockquote className='rounded-md bg-slate-600 p-4 ml-2 mt-4 mb-4 mr-auto border border-white w-fit'>
+          <p>the estimation of obesity levels in people from the countries of Mexico, Peru and Colombia,</p>
+          <p>with ages between 14 and 61 and diverse eating habits and physical condition,</p>
+          <p>data was collected using a web platform with a survey where anonymous users answered each question,</p> 
+          <p>then the information was processed obtaining 17 attributes and 2111 records.</p>
+        </blockquote>
         <strong className="flex text-xl">Project Guidelines</strong>
         <blockquote className='rounded-md bg-slate-600 p-4 ml-2 mt-4 mb-4 mr-auto border border-white w-fit'>
           <p>1. Before you execute rpart, describe the data using tables and plots based on techniques</p>
@@ -39,9 +45,10 @@ export default function Data101() {
         <p>Because my dataset is so large, im going to use a random sample of it for readable plots.</p>
         <p>Below I&apos;m using the same embeds as the <Link href="http://adiadi.pythonanywhere.com" className='text-blue-400'>Active Textbook</Link> does.</p>
         <Datacamp text= {
-          'youtube <- read.csv("https://raw.githubusercontent.com/TheChickenKnight/data101final/master/public/GlobalYouTubeStatistics.csv")\n' +
-          'plot(sample$subscribers,sample$video_views, ylab="views", xlab="subs", main="subs vs views")'
-        } className="h-96"/>
+          'obesity <- read.csv("https://raw.githubusercontent.com/TheChickenKnight/data101final/master/public/ObesityDataSet.csv")\n' +
+          't <- table(obesity$MTRANS)\n'+
+          'barplot(t, xlab="transportation", ylab="Population", main="Transportation method Popularity", border="black")'
+        } className="h-96 z-10"/>
       </div>
     );
   }
