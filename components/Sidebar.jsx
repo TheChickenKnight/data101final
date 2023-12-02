@@ -111,12 +111,12 @@ export default function Sidebar() {
             )}
           </div>
   
-          <div className="flex flex-col items-start mt-24">
+          <ul className="flex flex-col items-start mt-24">
               {
                 sections.map(section => {
                     return (
                       // eslint-disable-next-line react/jsx-key
-                      <div className="items-center">
+                      <li key={section.id} className="items-center">
                         <div className="items-center flex">
                           <DefaultIcon/>
                           <span 
@@ -128,39 +128,43 @@ export default function Sidebar() {
                             {section.name}
                           </span>
                         </div>
+                        <ul>
                         {
                           section.children.map(child => {
                             return (
                               // eslint-disable-next-line react/jsx-key
-                              <button
-                                className = {
-                                  classNames("flex items-center cursor-pointer hover:bg-black rounded w-full overflow-hidden whitespace-nowrap hover:p-5 active:p-3.5", {
-                                    //["bg-light-lighter"]: activeMenu.id === menu.id,
-                                  })
-                                }
-                                onClick={() => {
-                                  router.push("/" + section.id + "/" + child.id)
-                                  setTimeout(() => location.reload(), 1000);
-                                }}
-                              >
-                                <span className="pl-5 mt-1 text-m font-medium text-text">|</span>
-                                <span 
+                              <li key={child.id}>
+                                <button
                                   className = {
-                                    classNames("pl-5 mt-1 text-m font-medium text-text", {
-                                      hidden: toggleCollapse,
+                                    classNames("flex items-center cursor-pointer hover:bg-black rounded w-full overflow-hidden whitespace-nowrap hover:p-5 active:p-3.5", {
+                                      //["bg-light-lighter"]: activeMenu.id === menu.id,
                                     })
-                                  }>
-                                  {child.name}
-                              </span>
-                             </button>
+                                  }
+                                  onClick={() => {
+                                    router.push("/" + section.id + "/" + child.id)
+                                    setTimeout(() => location.reload(), 1000);
+                                  }}
+                                >
+                                  <span className="pl-5 mt-1 text-m font-medium text-text">|</span>
+                                  <span 
+                                    className = {
+                                      classNames("pl-5 mt-1 text-m font-medium text-text", {
+                                        hidden: toggleCollapse,
+                                      })
+                                    }>
+                                    {child.name}
+                                </span>
+                              </button>
+                              </li>
                             )
                           })
                         }
-                      </div>
+                        </ul>
+                      </li>
                     )
                 })
               }
-          </div>
+          </ul>
         </div>
       </div>
     );
