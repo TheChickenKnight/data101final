@@ -81,6 +81,7 @@ export default function Sidebar() {
   
     const handleSidebarToggle = () => setToggleCollapse(!toggleCollapse);
 
+    const home = () => router.push('/');
   
     return (
       <div
@@ -92,13 +93,15 @@ export default function Sidebar() {
         <div className="flex flex-col">
           <div className="flex items-center justify-between relative">
             <div className="flex items-center pl-1 gap-4">
-              <LogoIcon />
+              <button onClick={home}>
+                <LogoIcon />
+              </button>
               <span
                 className={classNames("mt-2 text-lg font-medium text-text", {
                   hidden: toggleCollapse,
                 })}
               >
-                Logo
+                Home
               </span>
             </div>
             {isCollapsible && (
@@ -142,8 +145,8 @@ export default function Sidebar() {
                                   }
                                   onClick={() => {
                                     router.push("/" + section.id + "/" + child.id);
-                                    setTimeout(() => initAddedDCLightExercises(), 1000);
-                                    //setTimeout(() => location.reload(), 1000);
+                                    if (child.id == "data101")
+                                      setTimeout(() => initAddedDCLightExercises(), 1000);
                                   }}
                                 >
                                   <span className="pl-5 mt-1 text-m font-medium text-text">|</span>
