@@ -68,15 +68,6 @@ export default function Sidebar() {
       }
     );
   
-    /*const getNavItemClasses = (menu) => {
-      return classNames(
-        "flex items-center cursor-pointer hover:bg-light-lighter rounded w-full overflow-hidden whitespace-nowrap",
-        {
-          ["bg-light-lighter"]: activeMenu.id === menu.id,
-        }
-      );
-    };*/
-  
     const onMouseOver = () => setIsCollapsible(!isCollapsible);
   
     const handleSidebarToggle = () => setToggleCollapse(!toggleCollapse);
@@ -93,7 +84,7 @@ export default function Sidebar() {
         <div className="flex flex-col">
           <div className="flex items-center justify-between relative">
             <div className="flex items-center pl-1 gap-4">
-              <button onClick={home}>
+              <button className="flex items-center cursor-pointer w-full overflow-hidden whitespace-nowrap transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 active: duration-300" onClick={home}>
                 <LogoIcon />
               </button>
               <span
@@ -131,7 +122,9 @@ export default function Sidebar() {
                             {section.name}
                           </span>
                         </div>
-                        <ul>
+                        <ul className = {
+                          classNames("transition ease-in-out delay-150 duration-300", {hidden: toggleCollapse})
+                        } >
                         {
                           section.children.map(child => {
                             return (
@@ -139,7 +132,7 @@ export default function Sidebar() {
                               <li key={child.id}>
                                 <button
                                   className = {
-                                    classNames("flex items-center cursor-pointer hover:bg-black rounded w-full overflow-hidden whitespace-nowrap hover:p-5 active:p-3.5", {
+                                    classNames("flex items-center cursor-pointer w-full overflow-hidden whitespace-nowrap transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300", {
                                       //["bg-light-lighter"]: activeMenu.id === menu.id,
                                     })
                                   }
@@ -153,7 +146,7 @@ export default function Sidebar() {
                                   <span 
                                     className = {
                                       classNames("pl-5 mt-1 text-m font-medium text-text", {
-                                        hidden: toggleCollapse,
+                                        
                                       })
                                     }>
                                     {child.name}
