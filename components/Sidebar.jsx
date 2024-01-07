@@ -54,7 +54,7 @@ export default function Sidebar() {
     const [toggleCollapse, setToggleCollapse] = useState(true);
     const [isCollapsible, setIsCollapsible] = useState(false);
     const wrapperClasses = classNames(
-      "h-screen bg-slate-800 px-4 pt-8 pb-4 bg-light flex justify-between flex-col",
+      "h-screen bg-slate-800 px-4 pt-8 pb-4 bg-light flex justify-between flex-col fixed z-50",
       {
         ["w-80"]: !toggleCollapse,
         ["w-20"]: toggleCollapse,
@@ -81,6 +81,7 @@ export default function Sidebar() {
   
     const handleSidebarToggle = () => setToggleCollapse(!toggleCollapse);
 
+    const home = () => router.push('/');
   
     return (
       <div
@@ -92,13 +93,15 @@ export default function Sidebar() {
         <div className="flex flex-col">
           <div className="flex items-center justify-between relative">
             <div className="flex items-center pl-1 gap-4">
-              <LogoIcon />
+              <button onClick={home}>
+                <LogoIcon />
+              </button>
               <span
                 className={classNames("mt-2 text-lg font-medium text-text", {
                   hidden: toggleCollapse,
                 })}
               >
-                Logo
+                Home
               </span>
             </div>
             {isCollapsible && (
@@ -137,8 +140,9 @@ export default function Sidebar() {
                                 <button
                                   className = "flex items-center cursor-pointer hover:bg-black rounded w-full overflow-hidden whitespace-nowrap hover:p-5 active:p-3.5"
                                   onClick={() => {
-                                    router.push("/" + section.id + "/" + child.id)
-                                    setTimeout(() => location.reload(), 1000);
+                                    router.push("/" + section.id + "/" + child.id);
+                                    if (child.id == "data101")
+                                      setTimeout(() => initAddedDCLightExercises(), 1000);
                                   }}
                                 >
                                   <span className="pl-5 mt-1 text-m font-medium text-text">|</span>
