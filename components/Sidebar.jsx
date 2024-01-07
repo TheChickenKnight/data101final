@@ -135,11 +135,7 @@ export default function Sidebar() {
                               // eslint-disable-next-line react/jsx-key
                               <li key={child.id}>
                                 <button
-                                  className = {
-                                    classNames("flex items-center cursor-pointer hover:bg-black rounded w-full overflow-hidden whitespace-nowrap hover:p-5 active:p-3.5", {
-                                      //["bg-light-lighter"]: activeMenu.id === menu.id,
-                                    })
-                                  }
+                                  className = "flex items-center cursor-pointer hover:bg-black rounded w-full overflow-hidden whitespace-nowrap hover:p-5 active:p-3.5"
                                   onClick={() => {
                                     router.push("/" + section.id + "/" + child.id)
                                     setTimeout(() => location.reload(), 1000);
@@ -165,6 +161,9 @@ export default function Sidebar() {
                 })
               }
           </ul>
+        </div>
+        <div className="">
+
         </div>
       </div>
     );
