@@ -9,13 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@sentry/nextjs": "^7.94.1",
     "@vercel/kv": "^1.0.1",
     "classnames": "^2.3.2",
     "fs": "^0.0.1-security",
+    "gpti": "^2.0.1",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
-    "next": "^14.0.3",
+    "next": "^14.1.0",
     "next-auth": "^5.0.0-beta.4",
+    "node-polyfill-webpack-plugin": "^3.0.0",
     "react": "^18",
     "react-dom": "^18",
     "sort-by": "^0.0.2"
@@ -24,7 +27,9 @@
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.0.3",
+    "patch-package": "^8.0.0",
     "postcss": "^8",
-    "tailwindcss": "^3.3.0"
+    "tailwindcss": "^3.3.0",
+    "webpack": "^5.89.0"
   }
 }
