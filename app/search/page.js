@@ -32,12 +32,13 @@ export default function Search() {
             if(err != null)
                 console.error(err);
             else {
+                console.log(data.gpt)
                 list.innerHTML = data.gpt.split("\n\n").filter(text => text.includes("|")).map((data, i) => {
                     let parts = data.replace(/([0-9]\. |")/g, "").split("|");
                     return "<li key=\"" + i + "\" class=\"p-5 hover:bg-slate-500 rounded-xl\"><strong class=\"text-blue-400\">" + parts[0] + "</strong><br/><p class=\"text-slate-200\">" + parts[1] + "</p></li>";
                 }).join("");
                 for (let child of list.children) 
-                    child.addEventListener("click", () => router.push("/articles/" + child.textContent.split("  ")[0].split(" ").join("-")));
+                    child.addEventListener("click", () => router.push("/articles/" + child.textContent.split("  ")[0].split(" ").join("-").split(/(?<=[a-z])[A-Z]/g)[0]));
             }
         });
     }
