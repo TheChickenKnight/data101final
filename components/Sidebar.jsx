@@ -62,7 +62,7 @@ export default function Sidebar() {
     );
   
     const collapseIconClasses = classNames(
-      "p-4 rounded bg-slate-500 absolute right-0 hover:p-5 active:p-3.5",
+      "p-4 rounded bg-slate-500 absolute right-0 transition ease-in-out hover:scale-110 active:scale-90",
       {
         "rotate-180": toggleCollapse,
       }
@@ -84,23 +84,26 @@ export default function Sidebar() {
         <div className="flex flex-col">
           <div className="flex items-center justify-between relative">
             <div className="flex items-center pl-1 gap-4">
-              <button className="flex items-center cursor-pointer w-full overflow-hidden whitespace-nowrap transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 active: duration-300" onClick={home}>
+              <button className="flex items-center cursor-pointer w-full overflow-hidden whitespace-nowrap transition ease-in-out hover:scale-110 active:scale-90 duration-300" onClick={home}>
                 <LogoIcon />
               </button>
-              <span
-                className={classNames("mt-2 text-lg font-medium text-text", {
+              <button
+                className={classNames("mt-2 text-lg font-medium text-text outline rounded-md p-2 pr-24 bg-slate-500 hover:bg-slate-400 transition ease-in-out hover:scale-110 active:scale-90", {
                   hidden: toggleCollapse,
                 })}
+                onClick={() => {
+                  router.push("/search");
+                }}
               >
-                Home
-              </span>
+                search
+              </button>
             </div>
             {isCollapsible && (
               <button
                 className={collapseIconClasses}
                 onClick={handleSidebarToggle}
               >
-                <CollapsIcon fill="#000000" />
+                <CollapsIcon fill="#000000"/>
               </button>
             )}
           </div>
@@ -132,7 +135,7 @@ export default function Sidebar() {
                               <li key={child.id}>
                                 <button
                                   className = {
-                                    classNames("flex items-center cursor-pointer w-full overflow-hidden whitespace-nowrap transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300", {
+                                    classNames("flex items-center cursor-pointer w-full overflow-hidden whitespace-nowrap transition ease-in-out hover:-translate-y-1 hover:scale-110 active:scale-90 active:translate-y-1 duration-300", {
                                       //["bg-light-lighter"]: activeMenu.id === menu.id,
                                     })
                                   }
