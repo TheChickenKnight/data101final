@@ -1,10 +1,11 @@
 "use client"
 
 import { gpt } from "gpti";
-
+import { useRouter } from "next/navigation";
 
 
 export default function Search() {
+    const router = useRouter();
 
     function handleSubmit() {
         let list = document.getElementById('list');
@@ -20,12 +21,12 @@ export default function Search() {
                     content: "This is your task. Come up with 3-5 article titles and a short blurb that could be written about the next prompt. Please write them in the syntax as follows: [ArticleTitle]|[Article blurb]. This will be one line, each following article will be on the next line with the same syntax. DO NOT include quotations around any article titles, nor bullet each line."
                 },
                 {
-                    role: "assitant",
+                    role: "assistant",
                     content: "Of course. I'll do my best to assist that function."
                 }
             ],
             prompt: document.getElementById('search').value,
-            model: "GPT-4",
+            model: "gpt-3.5-turbo",
             markdown: false
         }, (err, data) => {
             if(err != null)
@@ -33,10 +34,10 @@ export default function Search() {
             else {
                 list.innerHTML = data.gpt.split("\n\n").filter(text => text.includes("|")).map((data, i) => {
                     let parts = data.replace(/([0-9]\. |")/g, "").split("|");
-                    return "<li key=\"" + i + "\" class=\"p-5 hover:bg-slate-500 rounded-xl\"><a class=\"text-blue-400\">" + parts[0] + "</a><br/><p class=\"text-slate-200\">" + parts[1] + "</p></li>";
+                    return "<li key=\"" + i + "\" class=\"p-5 hover:bg-slate-500 rounded-xl\"><strong class=\"text-blue-400\">" + parts[0] + "</strong><br/><p class=\"text-slate-200\">" + parts[1] + "</p></li>";
                 }).join("");
-
-
+                for (let child of list.children) 
+                    child.addEventListener("click", () => router.push("/articles/" + child.textContent.split("  ")[0].split(" ").join("-")));
             }
         });
     }
