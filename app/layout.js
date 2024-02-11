@@ -1,6 +1,7 @@
 import { Inter } from 'next/font/google'
 import './globals.css'
 import Sidebar from '@/components/Sidebar';
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -11,6 +12,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <SpeedInsights/>
       <body className={inter.className + "h-screen flex flex-row justify-start"}>
           <Sidebar/>
         <div className='h-screen px-4 pt-8 pb-4 flex justify-between flex-col w-20'/>
