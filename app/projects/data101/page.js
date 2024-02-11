@@ -1,7 +1,6 @@
-import Link from 'next/link';
 import Datacamp from '/components/Datacamp';
-import classNames from 'classnames';
 import Image from 'next/image';
+import Clink from '@/components/ui/clink';
 
 export const data = {
   name: "Data 101 Final",
@@ -19,8 +18,8 @@ export default function Data101() {
         <strong className="flex text-3xl">Data 101 Final Project</strong>
         <p>As a Rutgers student, I decided to take the class <a className='text-red-400'>data 101</a> to test the waters of data science. Here is my Final Project.</p>
         <strong className="flex text-xl">The Database</strong>
-        <Link href='https://chckn.vercel.app/api/obdb' className='flex text-blue-400'>Obesity or CVD risk (Classify/Regressor/Cluster)</Link>
-        <p>This database comes from the page <Link href="https://www.kaggle.com/datasets/aravindpcoder/obesity-or-cvd-risk-classifyregressorcluster/" className='text-blue-400'>Kaggle</Link></p>
+        <Clink href='https://chckn.vercel.app/api/obdb'>Obesity or CVD risk (Classify/Regressor/Cluster)</Clink>
+        <p>This database comes from the page <Clink href="https://www.kaggle.com/datasets/aravindpcoder/obesity-or-cvd-risk-classifyregressorcluster/">Kaggle</Clink></p>
         <strong className="flex text-l mt-3">Description</strong>
         <blockquote className='rounded-md bg-slate-600 p-4 ml-2 mt-4 mb-4 mr-auto border border-white w-fit'>
           <p>the estimation of obesity levels in people from the countries of Mexico, Peru and Colombia,</p>
@@ -43,7 +42,7 @@ export default function Data101() {
           <p>results should be generated.</p>
         </blockquote>
         <strong className="flex text-xl">Data Description</strong>
-        <p>Below I&apos;m using the same embeds as the <Link href="http://adiadi.pythonanywhere.com" className='text-blue-400'>Active Textbook</Link> does.</p>
+        <p>Below I&apos;m using the same embeds as the <Clink href="http://adiadi.pythonanywhere.com">Active Textbook</Clink> does.</p>
         <p>Please continue to press run buttons within the embeds and read comments.</p>
         <Datacamp text= {
           '# Creates a Barplot of the most popular transportation methods.\n'+
@@ -64,7 +63,7 @@ export default function Data101() {
         } className="h-96 z-10"/>
 
         <strong className="flex text-xl">RPart Execution</strong>
-        <p>The function defined below is from <Link href="https://github.com/devanshagr/CrossValidation/blob/master/R/cross_validation.R" className='text-blue-400'>the Textbook&apos;s cross_validate function</Link>.</p>
+        <p>The function defined below is from <Clink href="https://github.com/devanshagr/CrossValidation/blob/master/R/cross_validation.R">the Textbook&apos;s cross_validate function</Clink>.</p>
         <Datacamp text= {
           'library(rpart)\n' +
           'cross_validate <- function(df, tree, n_iter, split_ratio, method = \'class\')\n' +
@@ -243,9 +242,7 @@ export default function Data101() {
         <strong className="flex text-l">Who helped me out?</strong>
         <p>all on my own, including this entire website</p>
         <strong className="flex text-l">Whose work did I refer to?</strong>
-        <p>Just work from <Link className='text-blue-400' href="http://adiadi.pythonanywhere.com/Rdata101">the active textbook</Link>.</p>
-
-
+        <p>Just work from <Clink href="http://adiadi.pythonanywhere.com/Rdata101">the active textbook</Clink>.</p>
       </div>
     );
   }

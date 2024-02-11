@@ -142,7 +142,7 @@ export default function Sidebar() {
                                   onClick={() => {
                                     router.push("/" + section.id + "/" + child.id);
                                     if (child.id == "data101")
-                                      setTimeout(() => initAddedDCLightExercises(), 1000);
+                                      setTimeout(() => initAddedDCLightExercises(), 5000);
                                   }}
                                 >
                                   <span className="pl-5 mt-1 text-m font-medium text-text">|</span>
