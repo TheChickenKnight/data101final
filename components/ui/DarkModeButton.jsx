@@ -13,6 +13,6 @@ export default function DarkModeButton({classy, ...props}) {
             body.classList.add("dark");
     }
     return (
-        <Button {...props} onClick={() => darkMode()} className={"absolute bottom-5 right-5 p-4 dark:bg-slate-800 bg-slate-400" + classy}><DarkIcon className="stroke-black dark:stroke-white"/></Button>
+        <Button {...props} onClick={() => darkMode()} className={"fixed z-50 bottom-5 right-5 p-4 dark:bg-slate-800 bg-slate-400" + classy}><DarkIcon className="stroke-black dark:stroke-white"/></Button>
     )
 }

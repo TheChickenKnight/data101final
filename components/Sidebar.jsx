@@ -53,13 +53,6 @@ export default function Sidebar() {
     let router = useRouter();
     const [toggleCollapse, setToggleCollapse] = useState(true);
     const [isCollapsible, setIsCollapsible] = useState(false);
-    const wrapperClasses = classNames(
-      "h-screen bg-slate-400 dark:bg-slate-800 px-4 pt-8 pb-4 flex justify-between flex-col fixed z-50",
-      {
-        ["w-80"]: !toggleCollapse,
-        ["w-20"]: toggleCollapse,
-      }
-    );
   
     const collapseIconClasses = classNames(
       "p-4 rounded bg-slate-500 absolute right-0 transition ease-in-out hover:scale-110 active:scale-90",
@@ -76,7 +69,13 @@ export default function Sidebar() {
   
     return (
       <div
-        className={wrapperClasses}
+        className={classNames(
+      "h-screen bg-slate-400 dark:bg-slate-800 transition duration-1000 px-4 pt-8 pb-4 flex justify-between flex-col fixed z-50",
+      {
+        ["w-80"]: !toggleCollapse,
+        ["w-20"]: toggleCollapse,
+      }
+    )}
         onMouseEnter={onMouseOver}
         onMouseLeave={onMouseOver}
         style={{ transition: "width 300ms cubic-bezier(0.2, 0, 0, 1) 0s" }}
