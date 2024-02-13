@@ -54,7 +54,7 @@ export default function Sidebar() {
     const [toggleCollapse, setToggleCollapse] = useState(true);
     const [isCollapsible, setIsCollapsible] = useState(false);
     const wrapperClasses = classNames(
-      "h-screen bg-slate-800 px-4 pt-8 pb-4 bg-light flex justify-between flex-col fixed z-50",
+      "h-screen bg-slate-400 dark:bg-slate-800 px-4 pt-8 pb-4 flex justify-between flex-col fixed z-50",
       {
         ["w-80"]: !toggleCollapse,
         ["w-20"]: toggleCollapse,
@@ -85,10 +85,10 @@ export default function Sidebar() {
           <div className="flex items-center justify-between relative">
             <div className="flex items-center pl-1 gap-4">
               <button className="flex items-center cursor-pointer w-full overflow-hidden whitespace-nowrap transition ease-in-out hover:scale-110 active:scale-90 duration-300" onClick={home}>
-                <LogoIcon />
+                <LogoIcon/>
               </button>
               <button
-                className={classNames("mt-2 text-lg font-medium text-text outline rounded-md p-2 pr-24 bg-slate-500 hover:bg-slate-400 transition ease-in-out hover:scale-110 active:scale-90", {
+                className={classNames("mt-2 text-lg font-medium text-text text-black dark:text-white outline outline-black dark:outline-white rounded-md p-2 pr-24 bg-slate-500 hover:bg-slate-400 transition ease-in-out hover:scale-110 active:scale-90", {
                   hidden: toggleCollapse,
                 })}
                 onClick={() => {
@@ -103,7 +103,7 @@ export default function Sidebar() {
                 className={collapseIconClasses}
                 onClick={handleSidebarToggle}
               >
-                <CollapsIcon fill="#000000"/>
+                <CollapsIcon fill="#000000" className="dark:stroke-white"/>
               </button>
             )}
           </div>
@@ -118,7 +118,7 @@ export default function Sidebar() {
                           <DefaultIcon/>
                           <span 
                             className = {
-                              classNames("mt-2 text-lg font-medium text-text", {
+                              classNames("mt-2 text-lg font-medium text-text text-black dark:text-white", {
                                 hidden: toggleCollapse,
                               })
                             }>
@@ -145,10 +145,10 @@ export default function Sidebar() {
                                       setTimeout(() => initAddedDCLightExercises(), 5000);
                                   }}
                                 >
-                                  <span className="pl-5 mt-1 text-m font-medium text-text">|</span>
+                                  <span className="pl-5 mt-1 text-m font-medium text-text text-black dark:text-white">|</span>
                                   <span 
                                     className = {
-                                      classNames("pl-5 mt-1 text-m font-medium text-text", {
+                                      classNames("pl-5 mt-1 text-m font-medium text-text text-black dark:text-white", {
                                         
                                       })
                                     }>
