@@ -165,8 +165,8 @@ export default function Sidebar() {
               }
           </ul>
         </div>
-        <div className="">
-
+        <div className="fixed bottom-5">
+              
         </div>
       </div>
     );

@@ -17,6 +17,7 @@ import {
 import { Input } from "../ui/input"
 import Clink from "../ui/clink"
 import GoogleSignInButton from "../GoogleSignInButton"
+import { useRouter } from "next/navigation"
  
 const FormSchema = z
     .object({
@@ -34,7 +35,8 @@ const FormSchema = z
     })
  
 export default function InputForm() {
-  
+  const router = useRouter();
+
   const form = useForm({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -45,8 +47,23 @@ export default function InputForm() {
     }
   })
  
-  function onSubmit(data) {
-    console.log(data)
+  async function onSubmit(data) {
+    const response = await fetch("/api/auth/signup", {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        username: data.username,
+        email: data.email,
+        password: data.password
+      })
+    })
+    console.log(response)
+    if (response.ok) {
+      router.push('/auth/login');
+    } else
+      console.error("registration failed");
   }
  
   return (

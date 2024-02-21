@@ -4,8 +4,9 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 import GoogleSignInButton from "../GoogleSignInButton"
+import { getSession, signIn } from 'next-auth/react'
  
-import { Button } from "../ui/button"
+import { Button } from "../ui/button";
 import {
   Form,
   FormControl,
@@ -14,9 +15,9 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "../ui/form"
-import { Input } from "../ui/input"
-import Clink from "../ui/clink"
+} from "@/ui/form"
+import { Input } from "@/ui/input"
+import Clink from "@/ui/clink"
  
 const FormSchema = z.object({
   email: z.string().min(1, 'Email is required').email('Invalid email'),
@@ -26,18 +27,21 @@ const FormSchema = z.object({
     .min(8, 'Password must be longer than 8 characters')
 })
  
-export default function InputForm() {
+const InputForm = () => {
   
   const form = useForm({
     resolver: zodResolver(FormSchema),
   })
  
-  function onSubmit(data) {
-    console.log(data)
+  const onSubmit = async data => {
+   await signIn('credentials', {
+      email: data.email,
+      password: data.password,
+      callbackUrl: '/dashboard'
+    });
   }
  
-  return (
-    <Form {...form}>
+  return (<Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="w-2/3 space-y-6">
       <div className="space-y-2">
         <FormField
@@ -74,6 +78,7 @@ export default function InputForm() {
       <p className="test-center text-sm  text-gray-600 mt-2">If you don&apos;t have an account, please&nbsp;
         <Clink href="/auth/signup">Sign up</Clink>
       </p>
-    </Form>
-  )
-}
+    </Form>);
+};
+
+export default InputForm;

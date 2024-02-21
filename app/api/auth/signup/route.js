@@ -1,10 +1,21 @@
 import { db } from '@/lib/db';
 import { NextResponse } from 'next/server';
 import { hash } from 'bcrypt'; 
+import * as z from "zod";
+
+const userSchema = z
+    .object({
+        username: z.string().min(1, "Username is required").max(30, "Username is too long"),
+        email: z.string().min(1, 'Email is required').email('Invalid email'),
+        password: z
+            .string()
+            .min(1, 'Password is required')
+            .min(8, 'Password must be longer than 8 characters')
+    })
 
 export async function POST(request) {
     try {
-        const { email, username, password } = await request.json();
+        const { email, username, password } = userSchema.parse(await request.json());
     
         if (await db.user.findUnique({
             where: { email }
