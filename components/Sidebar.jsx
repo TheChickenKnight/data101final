@@ -5,7 +5,10 @@ import classNames from "classnames";
 import LogoIcon from "./icons/LogoIcon";
 import CollapsIcon from "./icons/CollapsIcon";
 import DefaultIcon from "./icons/DefaultIcon";
+import { Button } from "./ui/button";
+import UserIcon from "./icons/UserIcon"
 import { useRouter } from "next/navigation";
+import { getSession } from "next-auth/react";
 //bruh why is importing so bad
 const sections = [
   {
@@ -60,12 +63,18 @@ export default function Sidebar() {
         "rotate-180": toggleCollapse,
       }
     );
+
+    const profile = () => router.push(document.getElementById('prof').innerText !== "Signed Out" ? "/dashboard" : "/auth/login");
   
     const onMouseOver = () => setIsCollapsible(!isCollapsible);
   
     const handleSidebarToggle = () => setToggleCollapse(!toggleCollapse);
 
     const home = () => router.push('/');
+
+    getSession().then(session => {
+        document.getElementById('prof').innerText = session ? session.user.username : "Signed Out";
+    });
   
     return (
       <div
@@ -166,7 +175,7 @@ export default function Sidebar() {
           </ul>
         </div>
         <div className="fixed bottom-5">
-              
+              <Button onClick={profile} className={classNames("pt-4 pr-0 transition-transform duration-1000", {"w-60": !toggleCollapse})}><UserIcon /> <p id='prof' className={classNames("pb-3", {"hidden": toggleCollapse})}></p> </Button>
         </div>
       </div>
     );
