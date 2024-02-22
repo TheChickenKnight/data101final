@@ -79,7 +79,7 @@ export default function Sidebar() {
     return (
       <div
         className={classNames(
-      "h-screen bg-slate-400 dark:bg-slate-800 transition duration-1000 px-4 pt-8 pb-4 flex justify-between flex-col fixed z-50",
+      "h-screen bg-slate-400 outline dark:outline-black outline-white dark:bg-slate-800 transition duration-1000 px-4 pt-8 pb-4 flex justify-between flex-col fixed z-50",
       {
         ["w-80"]: !toggleCollapse,
         ["w-20"]: toggleCollapse,

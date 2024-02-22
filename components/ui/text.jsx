@@ -1,3 +1,3 @@
-export default function Text({classy, children, ...props}) {
-    return <p className={"text-black dark:text-white" + (classy ? (" " + classy) : "")} {...props}>{children}</p>;
+export default function Text({className, children, ...props}) {
+    return <p className={"text-black dark:text-white" + (className ? (" " + className) : "")} {...props}>{children}</p>;
 }
