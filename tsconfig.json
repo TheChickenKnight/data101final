@@ -40,7 +40,7 @@
     "**/*.ts",
     "**/*.tsx",
     "components/form/LogInForm.jsx"
-  ],
+, "app/projects/trimps/page.js"  ],
   "exclude": [
     "node_modules"
   ]
