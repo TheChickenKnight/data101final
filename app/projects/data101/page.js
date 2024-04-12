@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Clink from '@/components/ui/clink';
 import Text from '@/components/ui/text';
 
-export const data = {
+const data = {
   name: "Data 101 Final",
   id: "data101",
   children: [],

@@ -1,4 +1,4 @@
-export const data = {
+const data = {
   name: "Projects",
   id: "projects",
   children: ["data101"],
