@@ -10,17 +10,18 @@ class Trimp {
       };
       this.begin = this.pos;
       this.state = 0;
+      this.targeted = 0;
       if (obj && keys.includes('brain'))this.brain = obj.brain;
       else {
         this.brain = new Network(0);
-        this.brain.fromLayers(10, 9, 8);
+        this.brain.fromLayers(5, 9, 8);
       }
     }
     
     act() {
       const popDensity = this.popDensity();
       const predator = this.closestPredator();
-      const output = this.brain.ffor([this.pos.x / width, this.pos.y / height, random(), popDensity.length / 8, (height - this.pos.y) / height, (width - this.pos.x) / width, parseInt(this.p_color.reduce((p, c) => p + c + "")) / 255255255, parseInt(this.closestTrimp().p_color.reduce((p, c) => p + c + "")) / 255255255, predator.pos.x / width, predator.pos.y / height]); 
+      const output = this.brain.ffor([this.pos.x / width, this.pos.y / height, predator.pos.x / width, predator.pos.y / height, this.targeted]); 
       if (!output[6]) {
         if (output[4])output[floor(random(0, 4))] = 1;
         this.state = 0;
@@ -30,7 +31,8 @@ class Trimp {
         } else if (output[1] && this.pos.x !== 0 && trimpods.filter(trimp => this.pos.x - trimp.pos.x > 5 && abs(trimp.pos.y - this.pos.y) < 3).length == 0) {
           this.state = 1;
           this.pos.x--;
-        } else if (output[2] && this.pos.y !== height && trimpods.filter(trimp => trimp.pos.y - this.pos.y > 5 && abs(trimp.pos.x - this.pos.x) < 3).length == 0) {
+        } 
+        if (output[2] && this.pos.y !== height && trimpods.filter(trimp => trimp.pos.y - this.pos.y > 5 && abs(trimp.pos.x - this.pos.x) < 3).length == 0) {
           this.state = 2;
           this.pos.y++;
         } else if (output[3] && this.pos.y !== 0 && trimpods.filter(trimp => this.pos.y - trimp.pos.y > 5 && abs(trimp.pos.x - this.pos.x) < 3).length == 0) {
@@ -44,6 +46,7 @@ class Trimp {
       if (this.pos.x > width)this.pos.x = width;
       if (this.pos.y < 0)this.pos.y = 0;
       if (this.pos.y > height)this.pos.y = height;
+      this.targeted = 0;
     }
     
     closestPredator() {
@@ -64,7 +67,7 @@ class Trimp {
       else if (this.state == 2)image = this.show_vert();
       else image = this.show_idle();
       image.forEach(pixels => {
-        stroke(pixels.color);
+        stroke(this.targeted ? [255, 255, 255] : pixels.color);
         pixels.pixels.forEach(pixel => point(...pixel));
       });
     }

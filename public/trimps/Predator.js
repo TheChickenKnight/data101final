@@ -7,8 +7,8 @@ class Predator {
         };
         this.color = [255, 0, 0]; 
         this.range = 4;
-        this.speed = 1; 
-        this.lazy = 5;
+        this.speed = 0.5; 
+        this.lazy = 0;
         this.state = 0;      
     }
 
@@ -16,16 +16,14 @@ class Predator {
         if (this.state !== this.lazy) {
             this.state++
         } else {
-            const target = this.closestTrimp();
-            if (this.inRange(target)) {
-                this.kill(target);
+            this.target = this.closestTrimp();
+            this.target.targeted = 1;
+            if (this.inRange(this.target)) {
+                this.kill(this.target);
                 this.state = 0;
             } else {
-                this.moveTowards(target);
+                this.moveTowards(this.target);
             }
-            stroke(255, 255, 255);
-            circle(target.pos.x, target.pos.y, 5);
-            target.show();
         }
         this.show();
     }

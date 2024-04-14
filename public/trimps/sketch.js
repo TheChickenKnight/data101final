@@ -1,14 +1,14 @@
 let trimpods = [], predatods = [];
 
-const population = 500;
+const population = 200;
 const predators = 1;
-const fps = 1000000;
+const fps = 10000000000000;
 let frames = 0;
 const kill = false;
 const mutationChance = 0.01;
 
 function setup() {
-  createCanvas(200, 200);
+  createCanvas(100, 100);
   frameRate(fps);
   for (let i = 0; i < population; i++)trimpods.push(new Trimp({}));
   for (let i = 0; i < predators; i++)predatods.push(new Predator());
