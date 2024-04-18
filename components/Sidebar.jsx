@@ -43,6 +43,27 @@ const sections = [
         children: [],
         parent: "projects",
         icon: ""
+      },
+      {
+        name: "Trimps LLM",
+        id: "trimps",
+        children: [],
+        parent: "projects",
+        icon: ""
+      },
+      {
+        name: "Twingles LLM",
+        id: "twingles",
+        children: [],
+        parent: "projects",
+        icon: ""
+      },
+      {
+        name: "College Writing Project",
+        id: "collegewrite",
+        children: [],
+        parent: "projects",
+        icon: ""
       }
     ],
     parent: "",
