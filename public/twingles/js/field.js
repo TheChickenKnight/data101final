@@ -12,7 +12,7 @@ var food = 300;
 function setup() {
     HEIGHT = windowHeight;
     WIDTH = windowWidth;
-    createCanvas(windowWidth, windowHeight);
+    createCanvas(windowHeight, windowHeight);
     frameRate(FPS);
     initNeat();
     chart = new Chart(document.getElementById('myChart'), {
@@ -56,6 +56,9 @@ function draw() {
     if(iteration == ITERATIONS){
       endEval();
       iteration = 0;
+      targets = [];
+      for (let i = 0; i < food; i++)
+        new Target(random(width), random(height));
     }
     tringles.forEach(tri => {
       tri.act();
@@ -63,9 +66,7 @@ function draw() {
     });
     targets.forEach(target => {
       target.act();
-      if (target.isContact()) {
+      if (target.isContact())
         targets.splice(targets.indexOf(target), 1)
-        new Target(random(width), random(height)); 
-      }
     });
 }
