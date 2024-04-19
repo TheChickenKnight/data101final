@@ -69,9 +69,16 @@ function endEval() {
     for (let brain of neat.population) {
       avg += brain.score;
       if (brain.score > best)
-        best = brain.score;
+         best = brain.score;
       else if (brain.score < worst)
         worst = brain.score;
+    }
+    for (let tringle of tringles) {
+      if (tringle.brain.score == best) {
+        console.log(tringle)
+        tringle.graph(1000, 1000);
+
+      }
     }
     avg /= neat.population.length;
     chart.data.labels.push(neat.generation);
