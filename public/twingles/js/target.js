@@ -12,7 +12,7 @@ class Target {
 
     isContact() {
         for (let tri of tringles) {
-            if (Math.sqrt(Math.pow(tri.pos.x - this.pos.x, 2) + Math.pow(tri.pos.y - this.pos.y, 2)) < RANGE) {
+            if (Math.sqrt(Math.pow(tri.pos.x - this.pos.x, 2) + Math.pow(tri.pos.y - this.pos.y, 2)) < RANGE && tri.curVel.mag() > 0) {
                 tringles[tringles.indexOf(tri)].brain.score++;
                 return true;
             }
@@ -35,6 +35,8 @@ class Target {
             this.pos.y = HEIGHT;
         else if (this.pos.y < 0)
             this.pos.y = 0;
+        if (this.isContact())
+            targets.splice(targets.indexOf(this), 1)
         this.show();
     }
 

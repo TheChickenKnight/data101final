@@ -11,7 +11,7 @@ var food = 300;
 
 function setup() {
     HEIGHT = windowHeight;
-    WIDTH = windowWidth;
+    WIDTH = windowHeight;
     createCanvas(windowHeight, windowHeight);
     frameRate(FPS);
     initNeat();
@@ -64,9 +64,5 @@ function draw() {
       tri.act();
       tri.show(tringSize);
     });
-    targets.forEach(target => {
-      target.act();
-      if (target.isContact())
-        targets.splice(targets.indexOf(target), 1)
-    });
+    targets.forEach(target => target.act());
 }
