@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
         <Sidebar/>
         <DarkModeButton/>
         <div className='h-screen px-4 pt-8 pb-4 flex justify-between flex-col w-20'/>
-        <div className='flex-1 p-4 dark:bg-black'>{children}</div>
+        <div className='flex-1 p-4 bg-white dark:bg-black'>{children}</div>
       </body>
     </html>
   )

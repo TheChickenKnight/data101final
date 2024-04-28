@@ -93,9 +93,9 @@ export default function Sidebar() {
 
     const home = () => router.push('/');
 
-    getSession().then(session => {
+    /*getSession().then(session => {
         document.getElementById('prof').innerText = session ? session.user.username : "Signed Out";
-    });
+    });*/
   
     return (
       <div
