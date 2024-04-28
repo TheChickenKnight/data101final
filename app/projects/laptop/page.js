@@ -4,7 +4,7 @@ import { Canvas } from "react-three-fiber";
 
 export default function Laptop() {
     const laptop = useGLTF(
-        "./collegewrite/model.gltf"
+        "https://chckn.vercel.app/collegewrite/model.gltf"
     );
 
     return (
