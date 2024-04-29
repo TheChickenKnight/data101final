@@ -64,6 +64,13 @@ const sections = [
         children: [],
         parent: "projects",
         icon: ""
+      },
+      {
+        name: "Laptop",
+        id: "laptop",
+        children: [],
+        parent: "projects",
+        icon: ""
       }
     ],
     parent: "",
