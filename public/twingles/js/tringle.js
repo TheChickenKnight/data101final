@@ -53,7 +53,7 @@ class Tringle {
             this.curVel.mag() / (MAX_SPEED),
             this.accel.heading() / (2*PI),
             this.seenTarget ? Math.sqrt(Math.pow(this.seenTarget.pos.x - this.pos.x, 2) + Math.pow(this.seenTarget.pos.y - this.pos.y, 2)) / (Math.sqrt(Math.pow(WIDTH, 2) + Math.pow(HEIGHT, 2))) : 0,
-            this.seenTarget ? p5.Vector.angleBetween(this.curVel, createVector(this.seenTarget.pos.x - this.pos.x, this.seenTarget.pos.y - this.pos.y)) / (2*PI): 0,
+            this.seenTarget ? p5.Vector.angleBetween(this.curVel, createVector(this.seenTarget.pos.x - this.pos.x, this.seenTarget.pos.y - this.pos.y)) / (2*PI) : -1,
         ]
     }
 
