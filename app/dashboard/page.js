@@ -1,5 +1,4 @@
 import { getSession } from "next-auth/react";
-import Text from "../../components/ui/text"
 
 export default async function Dashboard() {
 
@@ -9,7 +8,7 @@ export default async function Dashboard() {
 
     return (
         <div className="p-10 pb-40 rounded-md bg-slate-400">
-            <Text className="text-xl">hi</Text>
+            <p className="text-xl text-black dark:text-white">hi</p>
         </div>
     );
 }

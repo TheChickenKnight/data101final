@@ -1,13 +1,12 @@
 import Clink from '@/components/ui/clink';
-import Text from '@/components/ui/text';
 
 export default function CollegeWrite() {
     
     return (
         <div>
-            <Text>
+            <p className='text-black dark:text-white'>
                 <strong className="flex text-3xl">Artificial Intelligence</strong>
-                A delve into AI research  and its overwhelming presence today.<br/>
+                A delve into AI research and its overwhelming presence today.<br/>
                 <br/>
                 <strong className="flex text-3xl">Background</strong>
                 Since I learned programming existed once I had crossed  ten years of age, I have always wanted<br/>
@@ -33,7 +32,7 @@ export default function CollegeWrite() {
                 considers “the responsibility that creators of AI (including computational models) have toward those who<br/> 
                 might be affected by those systems as professionals”, systems as in creations like a driverless car. Who is<br/> 
                 at fault if a driverless car chooses to hit someone?<br/>
-            </Text>
+            </p>
         </div>
     );
 }
