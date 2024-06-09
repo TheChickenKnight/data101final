@@ -7,10 +7,19 @@ const nextConfig = {
   
       return config;
     },
+    images: {
+      remotePatterns: [
+        {
+          protocol: 'https',
+          hostname: 'lastfm.freetls.fastly.net',
+          port: '',
+          pathname: '/i/u/300x300/**'
+        }
+      ]
+    }
   };
 
 module.exports = nextConfig
-
 
 // Injected content via Sentry wizard below
 
@@ -26,6 +35,7 @@ module.exports = withSentryConfig(
     silent: true,
     org: "rutgers-kh",
     project: "data101final",
+
   },
   {
     // For all available options, see:
@@ -51,5 +61,7 @@ module.exports = withSentryConfig(
     // https://docs.sentry.io/product/crons/
     // https://vercel.com/docs/cron-jobs
     automaticVercelMonitors: true,
+
+    
   }
 );
