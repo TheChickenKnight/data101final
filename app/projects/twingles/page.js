@@ -11,7 +11,7 @@ export default function Trimps() {
                 The triangles all get rewarded depending on how many circles they contact and then will be naturally <br/>
                 selected out in order to create a triangle that is good at pathfinding towards thes circles.<br/>
                 <br/>
-                The graph below is also generated with each epoch (generation) of traingles which allows to see if progress was actually made. <br/>
+                The graph below is also generated with each epoch (generation) of triangles which allows to see if progress was actually made. <br/>
                 The triangles also have a vision cone in front where they can only see within.
             </p>
             <iframe className="block w-full h-full" src="/twingles/index.html"/>

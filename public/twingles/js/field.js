@@ -10,9 +10,9 @@ var tringSize = 10;
 var food = 300;
 
 function setup() {
-    HEIGHT = windowWidth;
-    WIDTH = windowWidth;
-    createCanvas(windowWidth, windowWidth);
+    HEIGHT = windowHeight;
+    WIDTH = windowHeight;
+    createCanvas(HEIGHT, WIDTH);
     frameRate(FPS);
     initNeat();
     chart = new Chart(document.getElementById('myChart'), {
