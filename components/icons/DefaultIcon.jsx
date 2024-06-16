@@ -1,5 +1,5 @@
 function DefaultIcon({ fill = "#6C7281", ...rest}) {
-    return (
+    return (  
         <svg 
             width={25} 
             height={25}
