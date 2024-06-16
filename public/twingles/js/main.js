@@ -9,7 +9,7 @@ var HEIGHT;
 var FOOD_AMOUNT      = Math.round(WIDTH * HEIGHT * 1e-1);
 
 // GA settings
-var PLAYER_AMOUNT     = 100;
+var PLAYER_AMOUNT     = 50;
 var ITERATIONS        = 1000;
 var START_HIDDEN_SIZE = 0;
 var MUTATION_RATE     = 0.3;
@@ -68,17 +68,12 @@ function endEval() {
     let worst = neat.population[0].score;
     for (let brain of neat.population) {
       avg += brain.score;
-      if (brain.score > best)
-         best = brain.score;
+      if (brain.score > best) {
+        best = brain.score;
+        drawGraph(brain.graph(400, 400), '.draw', false);
+      }
       else if (brain.score < worst)
         worst = brain.score;
-    }
-    for (let tringle of tringles) {
-      if (tringle.brain.score == best) {
-        console.log(tringle)
-        tringle.graph(1000, 1000);
-
-      }
     }
     avg /= neat.population.length;
     chart.data.labels.push(neat.generation);

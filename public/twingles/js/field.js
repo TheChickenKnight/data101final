@@ -64,9 +64,5 @@ function draw() {
       tri.act();
       tri.show(tringSize);
     });
-    targets.forEach(target => {
-      target.act();
-      if (target.isContact())
-        targets.splice(targets.indexOf(target), 1)
-    });
+    targets.forEach(target => target.act());
 }
