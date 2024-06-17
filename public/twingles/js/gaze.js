@@ -1,7 +1,7 @@
 class Gaze {
     constructor(x, y, r, dir) {
         this.radius = r;
-        this.width = PI/4;
+        this.width = PI;
         this.pos = createVector(x, y);
         this.dir = dir;
         this.left = this.dir.copy();

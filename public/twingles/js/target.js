@@ -7,7 +7,7 @@ class Target {
         this.pos = createVector(x, y);
         this.vel = createVector(0, SPEED).rotate(random(2 * PI));
         this.accel = this.vel.copy().setMag(VELCHANGE);
-        targets.push(this);
+        target = this;
     }
 
     isContact() {
@@ -35,14 +35,12 @@ class Target {
             this.pos.y = HEIGHT;
         else if (this.pos.y < 0)
             this.pos.y = 0;
-        if (this.isContact())
-            targets.splice(targets.indexOf(this), 1)
         this.show();
     }
 
     show() {
         stroke(255,0 ,0);
         fill(255);
-        ellipse(this.pos.x, this.pos.y, 5);
+        ellipse(this.pos.x, this.pos.y, 25);
     }
 }

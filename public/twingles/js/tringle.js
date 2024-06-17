@@ -9,11 +9,12 @@ class Tringle {
         this.dir = createVector(0, 1).rotate(random(2 * PI));
         this.accel = createVector(0, 0)
         this.perp = createVector(this.dir.y, -this.dir.x);
-        this.gaze = new Gaze(this.pos.x, this.pos.y, 100, this.dir);
+        this.gaze = new Gaze(this.pos.x, this.pos.y, 1000, this.dir);
         this.brain = genome;
         this.brain.score = 0;
         this.seenTarget;
         this.seenTwingle;
+        this.distSum = 0;
         tringles.push(this);
     }
 
@@ -35,6 +36,8 @@ class Tringle {
             this.pos.y = HEIGHT;
         else if (this.pos.y < 0)
             this.pos.y = 0;
+        this.distSum += Math.sqrt(Math.pow(target.pos.x - this.pos.x, 2) + Math.pow(target.pos.y - this.pos.y, 2));
+        this.brain.score = 1000 / (this.distSum / ITERATIONS);
     }
 
     detect() {
@@ -47,9 +50,9 @@ class Tringle {
             -1,
             -1,
         ];
-        let newTargets = targets.filter(one => this.gaze.isWithin(createVector(one.pos.x - this.pos.x, one.pos.y - this.pos.y)));
-        if (newTargets.length != 0) {
-            this.seenTarget = newTargets[0];
+        let newTarget = this.gaze.isWithin(createVector(target.pos.x - this.pos.x, target.pos.y - this.pos.y)) ? target : null;
+        if (newTarget) {
+            this.seenTarget = newTarget;
             let tarDir = createVector(this.seenTarget.pos.x - this.pos.x, this.seenTarget.pos.y - this.pos.y);
             res[5] = tarDir.mag() / Math.sqrt(WIDTH*WIDTH + HEIGHT*HEIGHT);
             res[6] =  Math.acos(this.dir.dot(tarDir) / (this.dir.mag() * tarDir.mag())) / (2*PI);

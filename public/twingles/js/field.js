@@ -1,7 +1,7 @@
 var FPS = Number.MAX_SAFE_INTEGER;
 var tringles = [];
 var highestScore = 0;
-var targets = [];
+var target;
 var neat;
 var iteration = 0
 var chart;
@@ -44,8 +44,7 @@ function setup() {
         ]
       }
     });
-    for (let i = 0; i < food; i++)
-        new Target(random(width), random(height));
+    new Target(random(width), random(height));
     
     startEval();
 }
@@ -56,13 +55,11 @@ function draw() {
     if(iteration == ITERATIONS){
       endEval();
       iteration = 0;
-      targets = [];
-      for (let i = 0; i < food; i++)
-        new Target(random(width), random(height));
+      new Target(random(width), random(height));
     }
     tringles.forEach(tri => {
       tri.act();
       tri.show(tringSize);
     });
-    targets.forEach(target => target.act());
+    target.act();
 }
