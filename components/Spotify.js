@@ -12,7 +12,7 @@ export default function Spotify() {
     const [isPlaying, setIsPlaying] = useState();
 
     useEffect(() => {
-        fetch("http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=chcknknight&format=json&limit=1&api_key=7145b082192138a47e846b2f36069203").then(res => res.json())
+        fetch("https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=chcknknight&format=json&limit=1&api_key=7145b082192138a47e846b2f36069203").then(res => res.json())
             .then(async json => {
                 const data = json.recenttracks.track[0];
                 setArtist(data.artist['#text']);
