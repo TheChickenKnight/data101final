@@ -9,7 +9,7 @@ import { Button } from "./ui/button";
 import UserIcon from "./icons/UserIcon"
 import { useRouter } from "next/navigation";
 import { getSession } from "next-auth/react";
-//bruh why is importing so bad
+
 const sections = [
   {
     name: "Personal",
@@ -93,10 +93,8 @@ export default function Sidebar() {
     );
 
     const profile = () => router.push(document.getElementById('prof').innerText !== "Signed Out" ? "/dashboard" : "/auth/login");
-  
-    const onMouseOver = () => setIsCollapsible(!isCollapsible);
-  
-    const handleSidebarToggle = () => setToggleCollapse(!toggleCollapse);
+
+    const onMouseOver = () => setToggleCollapse(!toggleCollapse);
 
     const home = () => router.push('/');
 
@@ -134,14 +132,6 @@ export default function Sidebar() {
                 search
               </button>
             </div>
-            {isCollapsible && (
-              <button
-                className={collapseIconClasses}
-                onClick={handleSidebarToggle}
-              >
-                <CollapsIcon fill="#000000" className="dark:stroke-white"/>
-              </button>
-            )}
           </div>
   
           <ul className="flex flex-col items-start mt-24">
