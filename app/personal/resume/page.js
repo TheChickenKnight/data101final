@@ -8,7 +8,9 @@ const data = {
 
 export default function Resume() {
     return (
-        <iframe className="w-full h-full" src="/resume.html"/>
+      <div className="flex justify-center h-screen">
+        <iframe className="max-w-4xl w-full px-4" src="/resume.html"/>
+      </div>
     );
   }
   
