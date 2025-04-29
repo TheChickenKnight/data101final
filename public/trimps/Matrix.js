@@ -45,7 +45,7 @@ class Matrix {
       let chance = false;
       this.data = this.data.map(row => row.map(el => {
         if (random(0, 100) <= mutationChance) {
-          el += random(-0.1, 0.1);
+          el += random(-10, 10);
           chance = true;
         }
         return el; 
@@ -149,6 +149,14 @@ class Matrix {
   
     print() {
       console.table(this.data);
+    }
+
+    copy() {
+      let m = new Matrix(this.rows, this.cols);
+      for (let i = 0; i < this.rows; i++) 
+        for (let j = 0; j < this.cols; j++) 
+          m.data[i][j] = this.data[i][j];
+      return m;
     }
   }
   

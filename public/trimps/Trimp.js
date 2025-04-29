@@ -5,60 +5,43 @@ class Trimp {
       this.p_color = obj.p_color || [random(0, 255), random(0, 255), random(0, 255)];
       this.s_color = obj.s_color || [random(0, 255), random(0, 255), random(0, 255)];
       this.pos = {
-        x: obj.x || floor(random(0, width+1)),
-        y: obj.y || floor(random(0, height+1))
+        x: obj.x || 50,
+        y: obj.y || 50
       };
       this.begin = this.pos;
       this.state = 0;
-      this.targeted = 0;
       if (obj && keys.includes('brain'))this.brain = obj.brain;
       else {
         this.brain = new Network(0);
-        this.brain.fromLayers(5, 9, 8);
+        this.brain.fromLayers(4, 5, 6);
       }
     }
     
     act() {
-      const popDensity = this.popDensity();
-      const predator = this.closestPredator();
-      const output = this.brain.ffor([this.pos.x / width, this.pos.y / height, predator.pos.x / width, predator.pos.y / height, this.targeted]); 
-      if (!output[6]) {
-        if (output[4])output[floor(random(0, 4))] = 1;
+      let output = this.brain.ffor([this.pos.x / width, this.pos.y / height, mouseX / width, mouseY / height]);
+      if (!output[5]) {
+        if (output[4])
+          output[floor(random(0, 4))] = 1;
         this.state = 0;
-        if (output[0] && this.pos.x !== width && trimpods.filter(trimp => trimp.pos.x - this.pos.x > 5 && abs(trimp.pos.y - this.pos.y) < 3).length == 0) {
+        if (output[0] && this.pos.x !== width) {
           this.state = 1;
           this.pos.x++;
-        } else if (output[1] && this.pos.x !== 0 && trimpods.filter(trimp => this.pos.x - trimp.pos.x > 5 && abs(trimp.pos.y - this.pos.y) < 3).length == 0) {
+        } else if (output[1] && this.pos.x !== 0) {
           this.state = 1;
           this.pos.x--;
         } 
-        if (output[2] && this.pos.y !== height && trimpods.filter(trimp => trimp.pos.y - this.pos.y > 5 && abs(trimp.pos.x - this.pos.x) < 3).length == 0) {
+        if (output[2] && this.pos.y !== height) {
           this.state = 2;
           this.pos.y++;
-        } else if (output[3] && this.pos.y !== 0 && trimpods.filter(trimp => this.pos.y - trimp.pos.y > 5 && abs(trimp.pos.x - this.pos.x) < 3).length == 0) {
+        } else if (output[3] && this.pos.y !== 0) {
           this.state = 2;
           this.pos.y--;
         }
-        if (output[5] && kill && popDensity.length == 1 && !(popDensity[0].p_color[0] == this.p_color[0] && popDensity[0].p_color[1] == this.p_color[1] && popDensity[0].p_color[2] == this.p_color[2]) && !survive(popDensity[0]))trimpods.splice(trimpods.indexOf(popDensity[0]), 1);
-        if (output[7])trimpods.splice(trimpods.indexOf(this), 1);
       }
-      if (this.pos.x < 0)this.pos.x = 0;
-      if (this.pos.x > width)this.pos.x = width;
-      if (this.pos.y < 0)this.pos.y = 0;
-      if (this.pos.y > height)this.pos.y = height;
-      this.targeted = 0;
-    }
-    
-    closestPredator() {
-      return predatods.reduce((p, c) => abs(p.pos.x - this.pos.x) + abs(p.pos.y - this.pos.y) < abs(c.pos.x - this.pos.x) + abs(c.pos.y - this.pos.y) ? p : c);
-    }
-
-    closestTrimp() {
-      return trimpods.reduce((p, c) => abs(p.pos.x - this.pos.x) + abs(p.pos.y - this.pos.y) < abs(c.pos.x - this.pos.x) + abs(c.pos.y - this.pos.y) ? p : c);
-    }
-
-    popDensity() {
-      return trimpods.filter(trimp => abs(this.pos.x - trimp.pos.x) + abs(this.pos.y - trimp.pos.y) == 2 );
+      if (this.pos.x < 5)this.pos.x = 0;
+      if (this.pos.x > width-5)this.pos.x = width;
+      if (this.pos.y < 5)this.pos.y = 0;
+      if (this.pos.y > height-5)this.pos.y = height;
     }
     
     show() {
@@ -134,7 +117,7 @@ class Trimp {
     }
 
     replicate() {
-      let brain = this.brain;
+      let brain = this.brain.copy();
       let chance = false;
       chance = brain.weights_ih.mutate() ? true : chance;
       chance = brain.weights_ho.mutate() ? true : chance;

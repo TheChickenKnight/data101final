@@ -1,38 +1,48 @@
 import Clink from '@/components/ui/clink';
+import {
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
+} from "@/components/ui/accordion"
+import { Separator } from "@/components/ui/separator"
 
 export default function CollegeWrite() {
-    
     return (
-        <div>
+        <div className='mx-40 grow'>
             <p className='text-black dark:text-white'>
-                <strong className="flex text-3xl">Artificial Intelligence</strong>
-                A delve into AI research and its overwhelming presence today.<br/>
-                <br/>
-                <strong className="flex text-3xl">Background</strong>
-                Since I learned programming existed once I had crossed  ten years of age, I have always wanted<br/>
-                to create something that could create its own decision. It always seemed so boring solving what was<br/> 
-                already solved, creating that which inconceivable amounts of scholars have done better already. The<br/> 
-                concept of attempting the creation of a brain, ergo coding an Artificial Intelligence, creates a sense of<br/> 
-                individuality upon your code, where everyone&apos;s created model has learned in its own unique way. In my<br/> 
-                experience, being able to watch something you create find solutions for a problem that you did not<br/> 
-                expressly solve is much more fulfilling.<br/>
-                <br/>
-                In recent years, it almost seems like talks of dangerously accurate Artificial Intelligence have<br/> 
-                sprouted from naught. Unbeknownst to the average civilian, the Machine Learning field has been growing<br/> 
-                ever so fast. Stanford University&apos;s 2022 Artificial Intelligence Index Report records an increase in total<br/> 
-                global Artificial Intelligence investment from twelve billion 12.75 billion U.S. dollars in 2015 to 91.9 billion<br/> 
-                in 2022.While 12.75 billion is no small feat, this level of attention from corporations still fell under the radar<br/> 
-                of the general public. Evidently, Artificial Intelligence has remained a very relevant field for longer than<br/> 
-                known.<br/>
-                <br/>
-                The use of Artificial Intelligence in case of solving theoreticals and or on a small scale does not<br/> 
-                seem to cause much harm. The catch comes with the use of Artificial Intelligence within places of<br/> 
-                unprecedented danger. Whenever an AI is used to make decisions, there is a chance that danger could<br/> 
-                come into play. Coluw 74, Issue 3 of Stephen C. Siota and colleagues&apos; <i>Artificial Intelligence and Work</i><br/> 
-                considers “the responsibility that creators of AI (including computational models) have toward those who<br/> 
-                might be affected by those systems as professionals”, systems as in creations like a driverless car. Who is<br/> 
-                at fault if a driverless car chooses to hit someone?<br/>
+                <strong className="flex text-3xl">Are Computer Science Students &#34;Cooked&#34;?</strong>
             </p>
+            <p className='text-slate-600 dark:text-slate-200'>A delve into AI and its overwhelming presence today.</p>
+            <Separator className="my-4"/>
+            <br/>
+            <p className='text-black dark:text-white'>Artificial Intelligence over the years has always reflected both the ambitions plus the anxieties of computer science. From its early days of linear algebra, to the more fluid and unpredictable generative AI, we have watched this kind of machine intelligence become more. But the latest frontier does not stop just at a closed environment. Up until now, most AI have a learning phase, where data is inputted to then later be in a usable form, where no training will no longer take place. But, no human intelligence works this way. A new vision is emerging, one where these systems can autonomously adapt in open environments, continuously learning without being told when. Bing Liu, a professor at the University of Illinois described this leap in AI Magazine Volume 44, Issue 2. “The key challenge here is how to automate the process [of training] so that it is carried out continually on the agent&#39;s own initiative and through its own interactions with humans, other agents and the environment just like human on-the-job learning”(Liu). This is just another example of the everchanging, unstoppable automation in front of us.</p>
+            <br/><br/>
+            <Accordion type="single" collapsible className="w-full">
+                <AccordionItem value="item-1">
+                    <AccordionTrigger className="text-black dark:text-white">Will the CS workforce get taken over by AI?</AccordionTrigger>
+                    <AccordionContent className="text-black dark:text-white">
+                        The idea that artificial intelligence might replace software developers has evolved from a 
+                        speculative fear to an increasingly real concern. With the advent of powerful coding assistants 
+                        like GitHub Copilot and ChatGPT, and more recently the rise of autonomous agents like 
+                        Devin—the first AI software engineer—the boundaries of what AI can do in the realm of 
+                        programming have shifted. But will these tools truly replace the need for human computer 
+                        scientists, or are they simply changing the shape of the field? Much of the anxiety stems from 
+                        rapid capability growth. Tools like Devin can autonomously generate, debug, and deploy code 
+                        from high-level prompts — a development that has prompted headlines like “Software engineers 
+                        beware: Devin, the AI is coming for your jobs”​(Avadia). At first glance, the author seems to 
+                        suggest a bleak future for human developers, one where AI agents do the coding, leaving 
+                        programmers obsolete. However, this perspective often exaggerates the threat while 
+                        underestimating the complexity of real-world development work.
+                    </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="item-2">
+                    <AccordionTrigger className="text-black dark:text-white">Is the CS Job Market Oversaturated?</AccordionTrigger>
+                    <AccordionContent className="text-black dark:text-white">
+                        test
+                    </AccordionContent>
+                </AccordionItem>
+            </Accordion>
         </div>
     );
 }

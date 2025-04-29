@@ -33,4 +33,14 @@ class Network {
 
     return output.toArray();
   }
+
+  copy() {
+    let clone = new Network(this.learning_rate);
+    clone.fromLayers(this.input_nodes, this.hidden_nodes, this.output_nodes);
+    clone.weights_ih = this.weights_ih.copy();
+    clone.weights_ho = this.weights_ho.copy();
+    clone.bias_h = this.bias_h.copy();
+    clone.bias_o = this.bias_o.copy();
+    return clone;
+  }
 }
