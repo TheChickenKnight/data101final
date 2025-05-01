@@ -1,12 +1,11 @@
 const RANGE = 5;
-const SPEED = 0;
+const SPEED = 0.5;
 const VELCHANGE = 1;
 
 class Target {
     constructor(x, y) {
         this.pos = createVector(x, y);
         this.vel = createVector(0, SPEED).rotate(random(2 * PI));
-        this.accel = this.vel.copy().setMag(VELCHANGE);
         target = this;
     }
 
@@ -22,9 +21,12 @@ class Target {
 
     act() {
         this.pos.add(this.vel);
-        if (Math.random() < VELCHANGE)
-            this.accel.rotate(random(PI/8) - PI/16);
-        this.vel.add(this.accel);
+        let closest = tringles[0].pos
+        for (let i = 1; i < tringles.length; i++) 
+            if (Math.sqrt(Math.pow(tringles[i].pos.x - this.pos.x, 2) + Math.pow(tringles[i].pos.y - this.pos.y, 2)) < Math.sqrt(Math.pow(closest.x - this.pos.x, 2) + Math.pow(closest.y - this.pos.y, 2)))
+                closest = tringles[i].pos;
+        this.vel = createVector(closest.x - this.pos.x, closest.y - this.pos.y);
+        this.vel.setMag(-1* SPEED);
         if (this.vel.mag() > SPEED)
             this.vel.setMag(SPEED);
         if (this.pos.x > WIDTH)

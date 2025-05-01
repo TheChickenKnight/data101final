@@ -55,7 +55,7 @@ function draw() {
     if(iteration == ITERATIONS){
       endEval();
       iteration = 0;
-      new Target(random(width), random(height));
+      new Target(random(WIDTH), random(HEIGHT));
     }
     tringles.forEach(tri => {
       tri.act();

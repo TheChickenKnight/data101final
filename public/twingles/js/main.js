@@ -6,12 +6,11 @@ var Architect = neataptic.Architect;
 
 var WIDTH;
 var HEIGHT;
-var FOOD_AMOUNT      = Math.round(WIDTH * HEIGHT * 1e-1);
 
 // GA settings
-var PLAYER_AMOUNT     = 50;
-var ITERATIONS        = 1000;
-var START_HIDDEN_SIZE = 0;
+var PLAYER_AMOUNT     = 200;
+var ITERATIONS        = 2000;
+var START_HIDDEN_SIZE = 3;
 var MUTATION_RATE     = 0.3;
 var ELITISM_PERCENT   = 0.1;
 
@@ -21,7 +20,7 @@ Config.warnings = false;
 function initNeat() {
   Config.warnings = false;
   neat = new Neat(
-        7,
+        4,
         2,
         null,
         {
@@ -59,7 +58,6 @@ function startEval() {
     genome = neat.population[genome];
     new Tringle(genome);
   }
-  //tringles[0].graph(1000, 1000);
 }
 
 function endEval() {
