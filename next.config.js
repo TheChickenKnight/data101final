@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  transpilePackages: ['gpti'],
    webpack: (config, { isServer }) => {
       if (!isServer) {
         config.resolve.fallback = { ["node:buffer"]: false };
