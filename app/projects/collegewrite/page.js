@@ -45,8 +45,8 @@ export default function CollegeWritePage() {
           what AI can do in the realm of programming have shifted. But will these tools truly replace the need for 
           human computer scientists, or are they simply changing the shape of the field? Much of the anxiety stems 
           from rapid capability growth. Tools like Devin can autonomously generate, debug, and deploy code from
-          high-level prompts — a development that has prompted headlines like “Software engineers beware: Devin, 
-          the AI is coming for your jobs”​(Avadia). At first glance, Tanya Avadia from Stevens Institute of Technology
+          high-level prompts — a development that has prompted headlines like &quot;Software engineers beware: Devin, 
+          the AI is coming for your jobs&quot;​(Avadia). At first glance, Tanya Avadia from Stevens Institute of Technology
           seems to suggest a bleak future for human developers, one where AI agents do the coding, leaving programmers
           obsolete. However, this perspective often exaggerates the threat while underestimating the complexity of 
           real-world development work.
@@ -56,7 +56,7 @@ export default function CollegeWritePage() {
           <Clink href="https://www.sciencedirect.com/science/article/abs/pii/S0167642324000340">a study assessing 
           ChatGPT’s role in software development</Clink>, many programmers view these tools not as threats, but as 
           collaborators. “Most participants did not perceive AI tools like ChatGPT as replacements,” notes Mohammad Amin Kuhail,
-          “but rather as assistants that could enhance productivity, reduce drudgery, and support learning”​(‌Kuhail et al.).
+          &quot;but rather as assistants that could enhance productivity, reduce drudgery, and support learning&quot;​(‌Kuhail et al.).
           In other words, the function of the software engineer may be shifting, but not disappearing. Still, this 
           transformation is not without consequence. Workers exposed to new AI technologies often report negative emotional 
           impacts. <Clink href="https://link.springer.com/article/10.1007/s00146-024-01962-8">A study from the 
@@ -81,8 +81,8 @@ export default function CollegeWritePage() {
           They all suggest that the field is experiencing a serious degree of oversaturation. Perhaps the most iconic
           case is a fellow computer science student Oliver Wu, a University of Michigan student who submitted 456 internship 
           applications in the course of 4 months, finally earning a singular offer from Ford, definitely not from some tech giant.
-          <Image className="mt-5 mb-2" src={oliver} alt="Pictured here are two screenshots from Oliver Wu's tiktoks."/>
-          <p className="text-slate-600 dark:text-slate-200 text-base text-center mb-5">Pictured here are two screenshots from Oliver Wu's tiktoks.</p>
+          <Image className="mt-5 mb-2" src={oliver} alt="Pictured here are two screenshots from Oliver Wu&apos;s tiktoks."/>
+          <p className="text-slate-600 dark:text-slate-200 text-base text-center mb-5">Pictured here are two screenshots from Oliver Wu&apos;s tiktoks.</p>
           His experience is not isolated; it reflects the reality where even conventionally highly qualified students face fierce 
           competition to be allocated good internships. 
           <Clink href="https://www.nytimes.com/2022/12/06/technology/computer-students-tech-jobs-layoffs.html">As Natasha Singer of <i>The New York Times</i> reports</Clink>, 
@@ -105,10 +105,10 @@ export default function CollegeWritePage() {
         <>
           Historically, it took a computer science degree coupled with general skill at programming, systems, and 
           databases to be considered for an entry-level position. Today, that foundation is only the start. CS 
-          majors are expected to come in today with a resume that's bursting at the seams: multiple internships, 
-          GitHub repositories, hackathon wins, personal websites, side projects, and even startup experience. It's 
-          no longer merely a case of being competent technologically—it's about being excellent, all the time. 
-          This aggressiveness has resulted in what is now referred to by many as the "inflation" of expectations 
+          majors are expected to come in today with a resume that is bursting at the seams: multiple internships, 
+          GitHub repositories, hackathon wins, personal websites, side projects, and even startup experience. It is 
+          no longer merely a case of being competent technologically—it is about being excellent, all the time. 
+          This aggressiveness has resulted in what is now referred to by many as the &quot;inflation&quot; of expectations 
           for hiring into entry-level jobs.
           <br/>
           <br/>
@@ -130,8 +130,8 @@ export default function CollegeWritePage() {
           <br/>
           <br/>
           The outcome? Students find themselves increasingly subject to pressure to overperform in order to make 
-          it as simply "average" in a sea of competition. And still, employment opportunities loom uncertain. As 
-          <Clink href="https://www.businessinsider.com/computer-science-major-myth-job-security-money-salary-2023-11">one Business Insider article by Kwan Wei Kevin Tan</Clink> unabashedly summarized, "getting a degree doesn't mean you get a job"—a 
+          it as simply &quot;average&quot;in a sea of competition. And still, employment opportunities loom uncertain. As 
+          <Clink href="https://www.businessinsider.com/computer-science-major-myth-job-security-money-salary-2023-11">one Business Insider article by Kwan Wei Kevin Tan</Clink> unabashedly summarized, &quot;getting a degree doesn&apos;t mean you get a job&quot;—a 
           comment that captures bleak inequality between climbing student yield and narrowing opportunity. What 
           was once an open, accessible arena is now a high-stakes proving ground where the finish line keeps moving.
         </>
