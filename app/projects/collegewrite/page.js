@@ -39,8 +39,8 @@ export default function CollegeWritePage() {
         <>
           The idea that artificial intelligence might replace software developers has evolved from a speculative 
           fear to an increasingly real concern. With the advent of powerful coding assistants like 
-          <Clink href="https://github.com/features/copilot">GitHub Copilot</Clink> and 
-          <Clink href="https://openai.com/index/chatgpt/">ChatGPT</Clink>, and more recently the rise of autonomous 
+          <Clink href="https://github.com/features/copilot"> GitHub Copilot</Clink> and 
+          <Clink href="https://openai.com/index/chatgpt/"> ChatGPT</Clink>, and more recently the rise of autonomous 
           agents like <Clink href="https://devin.ai">Devin</Clink>—the first AI software engineer—the boundaries of
           what AI can do in the realm of programming have shifted. But will these tools truly replace the need for 
           human computer scientists, or are they simply changing the shape of the field? Much of the anxiety stems 
@@ -53,14 +53,14 @@ export default function CollegeWritePage() {
           <br/>
           <br/>
           Research into developer perceptions of AI tools reveals a more nuanced picture. According to 
-          <Clink href="https://www.sciencedirect.com/science/article/abs/pii/S0167642324000340">a study assessing 
+          <Clink href="https://www.sciencedirect.com/science/article/abs/pii/S0167642324000340"> a study assessing 
           ChatGPT’s role in software development</Clink>, many programmers view these tools not as threats, but as 
           collaborators. “Most participants did not perceive AI tools like ChatGPT as replacements,” notes Mohammad Amin Kuhail,
           &quot;but rather as assistants that could enhance productivity, reduce drudgery, and support learning&quot;​(‌Kuhail et al.).
           In other words, the function of the software engineer may be shifting, but not disappearing. Still, this 
           transformation is not without consequence. Workers exposed to new AI technologies often report negative emotional 
-          impacts. <Clink href="https://link.springer.com/article/10.1007/s00146-024-01962-8">A study from the 
-          <i>AI & Society journal</i></Clink> found that “real-world experiences with new technologies — rather than 
+          impacts. <Clink href="https://link.springer.com/article/10.1007/s00146-024-01962-8"> A study from the 
+          <i> AI & Society journal</i></Clink> found that “real-world experiences with new technologies — rather than 
           hypothetical fears — were strongly associated with reduced expected well-being among workers”(Hinks)​. This suggests 
           that the writer, Tim Hinks, is hinting that the threat isn&#39;t merely job loss, but a deeper erosion of agency and 
           clarity in the workplace. As roles blur and expectations shift, programmers may find themselves in unfamiliar terrain 
@@ -85,13 +85,13 @@ export default function CollegeWritePage() {
           <p className="text-slate-600 dark:text-slate-200 text-base text-center mb-5">Pictured here are two screenshots from Oliver Wu&apos;s tiktoks.</p>
           His experience is not isolated; it reflects the reality where even conventionally highly qualified students face fierce 
           competition to be allocated good internships. 
-          <Clink href="https://www.nytimes.com/2022/12/06/technology/computer-students-tech-jobs-layoffs.html">As Natasha Singer of <i>The New York Times</i> reports</Clink>, 
+          <Clink href="https://www.nytimes.com/2022/12/06/technology/computer-students-tech-jobs-layoffs.html"> As Natasha Singer of <i>The New York Times</i> reports</Clink>, 
           many students who dreamt of and tailored their education towards big Tech firms now face a “shrinking job market”, 
           riddled with layoffs at companies such as Meta, Amazon, and Google. <i>The Wall Street Journal</i> reciprocates this 
           trend, noting that software engineering roles have dried up significantly as major players reallocate resources toward 
           AI development, often hiring fewer engineers for more specialized roles. Speaking of education, demand for computer 
           science degrees continue to surge as well, leading to overcrowded classrooms and limited resources. 
-          <Clink href="https://www.nytimes.com/2019/01/24/technology/computer-science-courses-college.html">Another article from <i>The New York Times</i></Clink> 
+          <Clink href="https://www.nytimes.com/2019/01/24/technology/computer-science-courses-college.html"> Another article from <i>The New York Times</i></Clink> 
           from Natasha mentions institutions like the University of Texas and the University of Washington. Students find themselves unable 
           to enroll in core classes even due to overwhelming demand and a low supply of faculty. This signals not only the fierce 
           competition due to popularity but also a structural lag in accommodation–essentially making life even harder for upcoming CS students.
@@ -113,7 +113,7 @@ export default function CollegeWritePage() {
           <br/>
           <br/>
           Evidence confirms this trend. 
-          <Clink href="https://research-ebsco-com.proxy.libraries.rutgers.edu/c/nx7rpm/viewer/pdf/5twfnqsp6z">A longitudinal study conducted by Aasheim et al.</Clink> suggests that while 
+          <Clink href="https://research-ebsco-com.proxy.libraries.rutgers.edu/c/nx7rpm/viewer/pdf/5twfnqsp6z"> A longitudinal study conducted by Aasheim et al.</Clink> suggests that while 
           fundamental skills like security, networking, and operating systems remain relevant, the most desirable 
           qualities in new employees are soft skills like honesty, communications, and flexibility. These are 
           competencies that are not even explicitly taught in most CS programs. Meanwhile, emerging technologies 
@@ -123,7 +123,7 @@ export default function CollegeWritePage() {
           <br/>
           Outside of the classroom, it becomes even more difficult. Hackathons and coding competitions have become 
           de facto required participation, some seeing them as career-building events rather than learning experiences. 
-          <Clink href="https://onlinelibrary-wiley-com.proxy.libraries.rutgers.edu/doi/full/10.1002/cae.22564">A 2022 study on going to hackathons</Clink> 
+          <Clink href="https://onlinelibrary-wiley-com.proxy.libraries.rutgers.edu/doi/full/10.1002/cae.22564"> A 2022 study on going to hackathons</Clink> 
           highlights that it is not because students want to learn or try things 
           out that they go, but because hackathons offer the competitive career advantage that they would otherwise 
           not gain. In other words, even extracurriculars are now being commodified and professionalized.
@@ -131,7 +131,7 @@ export default function CollegeWritePage() {
           <br/>
           The outcome? Students find themselves increasingly subject to pressure to overperform in order to make 
           it as simply &quot;average&quot;in a sea of competition. And still, employment opportunities loom uncertain. As 
-          <Clink href="https://www.businessinsider.com/computer-science-major-myth-job-security-money-salary-2023-11">one Business Insider article by Kwan Wei Kevin Tan</Clink> unabashedly summarized, &quot;getting a degree doesn&apos;t mean you get a job&quot;—a 
+          <Clink href="https://www.businessinsider.com/computer-science-major-myth-job-security-money-salary-2023-11"> one Business Insider article by Kwan Wei Kevin Tan</Clink> unabashedly summarized, &quot;getting a degree doesn&apos;t mean you get a job&quot;—a 
           comment that captures bleak inequality between climbing student yield and narrowing opportunity. What 
           was once an open, accessible arena is now a high-stakes proving ground where the finish line keeps moving.
         </>
