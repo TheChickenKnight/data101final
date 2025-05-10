@@ -2,7 +2,7 @@
 import { Environment, Html, PresentationControls } from "@react-three/drei";
 import dynamic from "next/dynamic";
 import { Canvas } from "@react-three/fiber";
-const Laptop = dynamic(() => import('./laptop.js'));
+ const Laptop = dynamic(() => import('./laptop.js'));
 
 export default function Page() {
     return (
